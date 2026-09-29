@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acervo</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Acervo da Biblioteca</h1>
+    <input id="busca" type="search" placeholder="Pesquisar por título ou autor">
+    <div id="lista" class="grid">
+      <article class="card livro">
+        <h2>Verity</h2>
+        <p>Colleen Hoover</p>
+        <span class="disponivel">Disponível</span>
+      </article>
+      <article class="card livro">
+        <h2>Dom Casmurro</h2>
+        <p>Machado de Assis</p>
+        <span class="disponivel">Disponível</span>
+      </article>
+      <article class="card livro">
+        <h2>1984</h2>
+        <p>George Orwell</p>
+        <span class="disponivel">Disponível</span>
+      </article>
+    </div>
+  </main>
+  <script>
+    const busca = document.getElementById('busca');
+    busca.addEventListener('input', () => {
+      const termo = busca.value.toLowerCase();
+      document.querySelectorAll('.livro').forEach(card => {
+        card.style.display = card.innerText.toLowerCase().includes(termo) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
